@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+        My Orders
+  </ion-title>
+  <ion-buttons end>
+    <button ion-button id="notification-button"  clear  end>
+        <ion-icon name="bonfire" color="danger">
+          <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+        </ion-icon>
+    </button>
+
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+   <ion-list-header>
+     Recent Orders
+   </ion-list-header>
+
+   <ion-item *ngFor='let order of orders' (click)="OrderDetails(order)">
+
+     <ion-avatar item-start>
+       <img src="assets/img/avatar-finn.png">
+     </ion-avatar>
+     <h2>{{order.orderId}}</h2>
+     <h3>Rs. {{ order.price }}</h3>
+     <p> {{ order.onDate }}</p>
+   </ion-item>
+
+ </ion-list>
+
+</ion-content>

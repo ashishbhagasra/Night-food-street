@@ -2,10 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { UsersPage } from '../pages/users/users';
-import { ReposPage } from '../pages/repos/repos';
-import { OrganisationsPage } from '../pages/organisations/organisations';
 import { HomePage } from '../pages/home/home';
+import { UserOrdersPage } from '../pages/user-orders/user-orders';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,7 +12,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 @Component({
   templateUrl: 'app.html'
 })
-export class BLEScan {
+export class Nfs {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
@@ -33,9 +31,7 @@ export class BLEScan {
     // set our app's pages
     this.pages = [
     { title: 'Home', component: HomePage },
-     { title: 'Users', component: UsersPage },
-     { title: 'BLE Scan', component: ReposPage },
-    { title: 'Organisations', component: OrganisationsPage }
+    { title: 'My Orders', component: UserOrdersPage }
     ];
   }
 
