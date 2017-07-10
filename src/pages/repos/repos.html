@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Ble Scan
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>BLE Device Scan</h3>
+  <button ion-button color="secondary" round block (click)="StartScanning()">Start Scanning</button>
+
+  <ion-list inset>
+    <ion-item-sliding *ngFor="let device of devices" #slidingItem>
+      <button ion-item (click)="ConnectToDevice(device)">
+        <h2>{{ device.name }}</h2>
+        <p>Device Id : {{ device.id }}</p>
+        <p>RSSI : {{ device.rssi }}</p>
+        <p>RTC : {{ device.day }}/{{ device.month }}/{{ device.year }} {{ device.hour }}:{{ device.minutes }}:{{ device.seconds }}</p>
+
+        <p>kWh : {{ device.kWh }}</p>
+        <p>Active Power : {{device.ActivePower}}</p>
+
+      </button>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-spinner *ngIf="isScanning==true" name="circles"></ion-spinner>
+</ion-content>
